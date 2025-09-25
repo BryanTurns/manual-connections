@@ -30,6 +30,10 @@ check_tool() {
 }
 
 SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
+if [ -z "$SCRIPT_DIR" ]; then 
+  echo "Error: Could not resolve script directory. Exiting..."
+  exit 1
+fi
 
 # Now we call the function to make sure we can use curl and jq.
 check_tool curl
